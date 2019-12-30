@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+IP=$(cat .vm-ip)
+
+sshpass -p 'vagrant' ssh vagrant@$IP
