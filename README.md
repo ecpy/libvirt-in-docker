@@ -1,16 +1,16 @@
 # libvirt in docker
 easy to install and start a vm in docker
 
-# features
+## features
 - persistent vm disk
 - run on every linux
 
-# install 
+## installation
 ```sh
 make install
 ```
 
-# run
+## how to run?
 ```sh
 make run
 # wait until the ssh is ready (abt several seconds)
@@ -18,3 +18,6 @@ make run
 ./ssh
 # now you have your vm :)
 ```
+
+## issues
+- makefile is not yet completed to fetch a vm disk using Vagrant
