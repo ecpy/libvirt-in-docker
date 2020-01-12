@@ -1,20 +1,18 @@
 FROM archlinux
 MAINTAINER ecpy
 
-RUN pacman -Syu --noconfirm libvirt
+# ENV USER=_1000
 
-RUN pacman -Syu --noconfirm iproute2
-
-RUN pacman -Syu --noconfirm ebtables dnsmasq firewalld
-
-RUN pacman -Syu --noconfirm qemu
-
-VOLUME [ ".:/root/libvirt" ]
-
-WORKDIR /root/libvirt
+RUN pacman -Sy --noconfirm archlinux-keyring && pacman -Syyu --noconfirm vim libvirt iproute2 ebtables dnsmasq firewalld qemu openssh
 
 COPY ./qemu.conf /etc/libvirt/
 
+COPY ./libvirt.conf /etc/libvirt/
+
+WORKDIR /root/libvirt
+
 COPY ./start.sh .
+
+# RUN useradd -ms /bin/bash ${USER}
 
 CMD chmod +x ./start.sh && ./start.sh

@@ -3,12 +3,17 @@ version: "3"
 services:
   libvirtd:
     build: .
+    # env_file: .env
     image: "silvermindlabs/libvirt"
     privileged: true
     # command: bash -c 'while true; do echo; sleep 1000; done;'
     volumes:
       - .:/root/libvirt/:Z
-    network_mode: host
+      # - ${HOST_SHARED_PATH}:/shared
+      # - ./log:/var/log/libvirt/
+      # - ./config:/etc/libvirt
+    # network_mode: host
     # ipc: host
     # pid: host
     # user: root
+    restart: always

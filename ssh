@@ -2,4 +2,5 @@
 
 IP=$(cat .vm-ip)
 
-sshpass -p 'vagrant' ssh vagrant@$IP
+#sshpass -p 'vagrant' ssh vagrant@$IP
+ssh vagrant@$IP

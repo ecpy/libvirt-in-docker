@@ -7,4 +7,4 @@ libvirtd > /dev/null & \
 (sleep 1 && virsh net-start default || true ) && \
 virsh create --file ./archlinux_vm.xml
 
-while true; do (sleep 1; echo 'fetching ip';virsh net-dhcp-leases default | grep -E -o '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > .vm-ip); done;
+while true; do (sleep 5; echo 'fetching ip';virsh net-dhcp-leases default | grep -E -o '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > .vm-ip); done;
